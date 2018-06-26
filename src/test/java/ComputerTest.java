@@ -1,8 +1,5 @@
 import Behaviours.IOutput;
-import device_management.Computer;
-import device_management.Monitor;
-import device_management.Printer;
-import device_management.Speaker;
+import device_management.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,11 +9,13 @@ import static org.junit.Assert.assertNotNull;
 public class ComputerTest {
     Computer computer;
     Monitor monitor;
+    Mouse mouse;
 
     @Before
     public void before() {
         monitor = new Monitor(22, 786432);
-        computer = new Computer(8, 512, monitor);
+        mouse = new Mouse("Wired", 3);
+        computer = new Computer(8, 512, monitor, mouse);
     }
 
     @Test
@@ -43,23 +42,31 @@ public class ComputerTest {
     @Test
     public void canOutputDataViaPrinter(){
         Printer printer = new Printer("Epson", "Stylus", 120, 4);
-        Computer computer = new Computer(8, 512, printer);
+        Computer computer = new Computer(8, 512, printer, mouse);
         assertEquals("printing: space invaders", computer.outputData("space invaders"));
     }
 
     @Test
     public void canOutputDataViaSpeaker(){
         Speaker speaker = new Speaker(100);
-        Computer computer = new Computer(8, 512, speaker);
+        Computer computer = new Computer(8, 512, speaker, mouse);
         assertEquals("playing: Beep!", computer.outputData("Beep!"));
     }
 
     @Test
     public void canUpdateOutputDevice(){
         Speaker speaker = new Speaker(100);
-        Computer computer = new Computer(8, 512, speaker);
+        Computer computer = new Computer(8, 512, speaker, mouse);
         Printer printer = new Printer("Epsom", "Stylus", 512, 4);
         computer.setOutputDevice(printer);
         assertEquals("printing: Beep!", computer.outputData("Beep!"));
+    }
+
+    @Test
+    public void canInputData(){
+        Keyboard keyboard = new Keyboard("Wireless", true);
+        Speaker speaker = new Speaker(100);
+        Computer computer = new Computer(12, 1024, speaker, keyboard);
+        assertEquals("Sending Data from keyboard... .. .", computer.inputData());
     }
 }

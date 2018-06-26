@@ -1,6 +1,8 @@
 package device_management;
 
-public class Keyboard {
+import Behaviours.IInput;
+
+public class Keyboard implements IInput {
 
     private String type;
     private boolean numPad;

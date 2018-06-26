@@ -1,6 +1,8 @@
 package device_management;
 
-public class Mouse {
+import Behaviours.IInput;
+
+public class Mouse implements IInput {
 
     private String type;
     private int buttons;
@@ -26,7 +28,7 @@ public class Mouse {
         return "The Mouse clicked the button";
     }
 
-    public String sentData(){
+    public String sendData(){
         return "The Mouse did something.";
     }
 }

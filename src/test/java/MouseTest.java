@@ -35,6 +35,6 @@ public class MouseTest {
 
     @Test
     public void mouseCanSendData(){
-        assertEquals("The Mouse did something.", mouse.sentData());
+        assertEquals("The Mouse did something.", mouse.sendData());
     }
 }
