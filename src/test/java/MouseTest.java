@@ -32,4 +32,9 @@ public class MouseTest {
     public void mouseCanClick(){
         assertEquals("The Mouse clicked the button", mouse.click());
     }
+
+    @Test
+    public void mouseCanSendData(){
+        assertEquals("The Mouse did something.", mouse.sentData());
+    }
 }

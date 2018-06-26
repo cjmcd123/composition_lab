@@ -28,4 +28,9 @@ public class KeyBoardTest {
     public void keyBoardCanType(){
         assertEquals("You typed 'Hello World' into the keyboard.", keyBoard.type("Hello World"));
     }
+
+    @Test
+    public void keyboardCanSendData(){
+        assertEquals("Sending Data from keyboard... .. .", keyBoard.sendData());
+    }
 }

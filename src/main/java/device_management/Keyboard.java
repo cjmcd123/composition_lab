@@ -21,4 +21,8 @@ public class Keyboard {
     public String type(String data){
         return "You typed '" + data + "' into the keyboard.";
     }
+
+    public String sendData(){
+        return "Sending Data from keyboard... .. .";
+    }
 }

@@ -25,4 +25,8 @@ public class Mouse {
     public String click(){
         return "The Mouse clicked the button";
     }
+
+    public String sentData(){
+        return "The Mouse did something.";
+    }
 }
